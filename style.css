@@ -1,155 +1,97 @@
- 
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
+:root {
+    --primary: #0077b6;
+    --primary-dark: #023e8a;
+    --accent: #ffb703;
+    --bg: #f5f8fb;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #6b7280;
 }
 
-body{
-    background:#f4f4f4;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-header{
-    background:#0077b6;
-    color:white;
-    text-align:center;
-    padding:20px;
+html {
+    scroll-behavior: smooth;
 }
 
-nav{
-    background:#023e8a;
+body {
+    font-family: Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
 }
 
-
-
-
-nav ul{
-    list-style:none;
-    display:flex;
-    justify-content:center;
+img {
+    max-width: 100%;
+    display: block;
 }
 
-
-nav ul li a{
-    display:block;
-    padding:15px 20px;
-    color:white;
-    text-decoration:none;
-    transition: 0.4s;
-
+a {
+    text-decoration: none;
+    color: inherit;
 }
 
-nav ul li a:hover{
-    background:#1762cb;
-    transform: scale(1.05);
-    border-radius: 14px;
-}
-
-nav ul li a.active{
+header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
     color: white;
-    border-bottom: 4px solid yellow;
-    padding-bottom: 4px;
+    text-align: center;
+    padding: 24px 16px;
 }
 
-.hero{
-    background:url("images/ambulance1.png");
-    background-size:cover;
-    color:white;
-    text-align:center;
-    padding:100px;
+header h1 {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
 }
 
-.container{
-    width:90%;
-    margin:auto;
-    padding:20px;
+nav {
+    background: var(--primary-dark);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
-.grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:20px;
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 8px 12px;
 }
 
-.card{
-    background:white;
-    padding:20px;
-    border:1px solid #ccc;
-    border-radius:8px;
+nav ul li a {
+    display: block;
+    padding: 12px 16px;
+    color: white;
+    border-radius: 999px;
+    transition: all 0.3s ease;
 }
 
-table{
-    width:100%;
-    border-collapse:collapse;
-    margin-top:20px;
+nav ul li a:hover,
+nav ul li a.active {
+    background: rgba(255, 255, 255, 0.16);
+    transform: translateY(-2px);
 }
 
-table,th,td{
-    border:1px solid black;
-}
-
-th{
-    background:#0077b6;
-    color:white;
-}
-
-th,td{
-    padding:10px;
-    text-align:center;
-}
-
-.gallery{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
-    border-radius: 6px;
-}
-
-.gallery img{
-    width:100%;
- border-radius: 3px
-}
- img:hover{
-    transform: scale(1.05);
-    transition: 0.5s;
-}
-form{
-    background:white;
-    padding:20px;
-    border-radius:8px;
-}
-
-input,textarea{
-    width:100%;
-    padding:10px;
-    margin:10px 0;
-}
-
-button{
-    background:#0077b6;
-    color:white;
-    border:none;
-    padding:10px 20px;
-}
-
-button:hover{
-    background:#023e8a;
-    transform: scale(1,1);
-    transition: 1s;
-}
-
-footer{
-    background:#023e8a;
-    color:white;
-    text-align:center;
-    padding:15px;
-    margin-top:20px;
+.hero {
+    background: linear-gradient(rgba(2, 62, 138, 0.7), rgba(2, 62, 138, 0.55)), url("ambulance1.png") center/cover;
+    color: white;
+    text-align: center;
+    padding: clamp(80px, 12vw, 120px) 20px;
 }
 
 .hero-content {
     max-width: 800px;
     margin: 0 auto;
+}
+
+.hero h2 {
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    margin-bottom: 12px;
 }
 
 .hero p {
@@ -158,7 +100,6 @@ footer{
     opacity: 0.95;
 }
 
-
 .hero-btn {
     display: inline-block;
     background-color: #328cc1;
@@ -166,15 +107,72 @@ footer{
     text-decoration: none;
     padding: 12px 30px;
     font-weight: 600;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
+    border-radius: 999px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .hero-btn:hover {
     background-color: #ffffff;
     color: #0b3c5d;
+    transform: translateY(-2px);
 }
 
+.container {
+    width: min(1120px, 92%);
+    margin: 0 auto;
+    padding: 24px 0 40px;
+}
+
+.welcome-section {
+    margin-bottom: 35px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.card,
+form,
+.action-card {
+    background: var(--surface);
+    padding: 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(2, 62, 138, 0.08);
+}
+
+.action-card {
+    border-top: 4px solid var(--primary-dark);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.action-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 28px rgba(2, 62, 138, 0.12);
+}
+
+.action-card h3 {
+    color: var(--primary-dark);
+    margin-bottom: 12px;
+}
+
+.card-link {
+    color: #328cc1;
+    font-weight: 600;
+    margin-top: 15px;
+    display: inline-block;
+    transition: color 0.2s ease;
+}
+
+.card-link:hover {
+    color: var(--primary-dark);
+}
 
 .emergency-bar {
     background-color: #d9534f;
@@ -182,7 +180,7 @@ footer{
     text-align: center;
     padding: 12px 20px;
     font-size: 15px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .emergency-content span {
@@ -191,41 +189,153 @@ footer{
     margin-left: 5px;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
 
-.action-card {
-    background: #ffffff;
-    border: 1px solid #e1e8ed;
-    border-top: 4px solid #0b3c5d; 
-    padding: 25px;
+table,
+th,
+td {
+    border: 1px solid #d1d5db;
+}
+
+th {
+    background: var(--primary);
+    color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    text-align: center;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
 }
 
-.action-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+.gallery img:hover {
+    transform: scale(1.03);
 }
 
-.action-card h3 {
-    color: #0b3c5d;
-    margin-bottom: 12px;
+form {
+    background: var(--surface);
+    padding: 24px;
+    border-radius: 16px;
 }
 
-.card-link {
-    color: #328cc1;
-    text-decoration: none;
-    font-weight: 600;
-    margin-top: 15px;
-    display: inline-block;
-    transition: color 0.2s ease;
+input,
+textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
-.card-link:hover {
-    color: #0b3c5d;
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.welcome-section {
-    margin-bottom: 35px;
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+footer {
+    background: var(--primary-dark);
+    color: white;
+    text-align: center;
+    padding: 18px 16px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid,
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        width: min(100%, 94%);
+        padding: 20px 0 32px;
+    }
+
+    .hero {
+        padding: 72px 16px;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+    }
+
+    nav ul li {
+        flex: 1 1 calc(50% - 8px);
+    }
+
+    nav ul li a {
+        text-align: center;
+    }
+
+    .action-card,
+    .card,
+    form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        padding: 18px 14px;
+    }
+
+    nav ul li {
+        flex-basis: 100%;
+    }
+
+    .hero {
+        padding: 60px 14px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-btn {
+        display: block;
+        width: 100%;
+    }
+
+    .gallery img {
+        height: 180px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+    }
 }
